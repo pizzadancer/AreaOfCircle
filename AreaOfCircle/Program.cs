@@ -12,18 +12,28 @@ namespace AreaOfCircle
             double milesPerGallon;
             double milesTravelled;
             double howManyGallons;
-            
 
             
             // Area Calculator - Welcome Message
             Console.WriteLine(">>> Area Calculator <<<");
 
-            // get UserInput
-            Console.Write("Enter a radius: ");
-            input = Console.ReadLine();
-
-            // Convert string input to double
-            radius = double.Parse(input);
+            // Get UserInput
+            // If negative, loop until user enters a positive number
+            do
+            {
+                // Get UserInput
+                Console.Write("Enter a radius: ");
+                input = Console.ReadLine();
+                double.TryParse(input, out radius); // Will Convert string input to double, a return value indicates if it succeeded (returns 0 if failed)
+                
+                if (radius == 0)
+                {
+                    Console.WriteLine("Please input valid number");
+                }
+                
+            }
+            while (radius <= 0);
+            
 
             // Calculate areaOfCircle     
             Console.WriteLine($"\nThe area of a circle of radius {radius} is: {Circle.getAreaOfCircle(radius)}");
@@ -38,12 +48,21 @@ namespace AreaOfCircle
             // Road Trip! - Welcome Message            
             Console.WriteLine("\n\n >>> Surprise Road Trip Time!!!! <<<");
 
-            // Get MPG from User
-            Console.Write("\nHow many miles-per-gallon does you car get?: ");
-            input = Console.ReadLine();
+            // Get MPG from User          
+            do
+            {
+                // Get UserInput
+                Console.Write("\nHow many miles-per-gallon does you car get?: ");
+                input = Console.ReadLine();
+                double.TryParse(input, out milesPerGallon); // Will Convert string input to double, a return value indicates if it succeeded (returns 0 if failed)
 
-            // Conver MPG from str >> dbl
-            milesPerGallon = double.Parse(input);
+                if (milesPerGallon == 0)
+                {
+                    Console.WriteLine("Please input valid number");
+                }
+
+            }
+            while (milesPerGallon <= 0);
 
             // Assign the area of the circle as the miles travelled by car
             milesTravelled = Circle.getAreaOfCircle(radius);
