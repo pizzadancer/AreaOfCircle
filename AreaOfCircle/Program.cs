@@ -22,7 +22,7 @@ namespace AreaOfCircle
             do
             {
                 // Get UserInput
-                Console.Write("Enter a radius: ");
+                Console.Write("\nEnter a radius: ");
                 input = Console.ReadLine();
                 double.TryParse(input, out radius); // Will Convert string input to double, a return value indicates if it succeeded (returns 0 if failed)
                 
@@ -70,34 +70,8 @@ namespace AreaOfCircle
             // Find how many gallons they used to get around the circle
             howManyGallons = milesTravelled / milesPerGallon;
 
-            Console.WriteLine($"\nYou car will used {Math.Round(howManyGallons, 4)} gallons to get around the circle.");
+            Console.WriteLine($"\nYou car will used {Math.Round(howManyGallons, 4)} gallons to get around the circle.\n");
+            Console.WriteLine("============= end =============");
         }
-    }
-
-    class Circle
-    {
-        public const double pi = Math.PI;
-        public static double getAreaOfCircle(double radius)
-        {
-            double areaOfCircle;
-           
-            areaOfCircle = pi * radius * radius;
-            return areaOfCircle;
-        }
-
-        public static double getCircumference(double radius)
-        {
-            double circumference;
-            circumference = 2 * pi * radius;
-            return circumference;
-        } 
-
-        public static double getDiameter(double radius)
-        {
-            double diameter;
-            diameter = 2 * radius;
-            return diameter;
-        }
-        
     }
 }
